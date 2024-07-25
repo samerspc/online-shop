@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>knitted*</title>
+    <link rel="stylesheet" href="{% static './css/index.css' %}" />
+    <link rel="stylesheet" href="{% static './css/auto.css' %}" />
+    <link rel="stylesheet" href="{% static './css/burger.css' %}" />
+    <link rel="stylesheet" href="{% static './css/cards.css' %}">
+{% endblock %}
+  
+{% block content %}
+    <style>
+        #mobilelove {display: none; cursor: pointer;}
+        @media screen and (max-width: 520px) {
+            .h2mobile {
+                font-weight: unset;
+                margin-top: 50px;
+            }
+            #mobilelove {
+                display: block;
+                margin: 8px 8px 0 0;
+                width: 20px;
+                height: 20px;
+                
+            }
+            #desklove {
+                display: none;
+            }
+            .card-price {margin-bottom: 8px;}
+        }
+        @media screen and (max-width: 410px) { 
+            main, .container {padding-left: 15px; padding-right: 15px;}
+        }
+        
+    </style>
+    <main>
+      <div class="container2">
+        <h2 class="h2pc">обувь для мужчин</h2>
+        <h2 class="h2mobile">каталог</h2>
+        <div class="filter">
+          <div class="filter_item">
+            <select name="" id="">
+              <option value="">бренд</option>
+                {% for brand in brands %}
+                    <option value="{{ brand.id }}" 
+                                {% if current_brand == brand.id %}selected{% endif %}>
+                            {{ brand.name }}
+                    </option>
+                {% endfor %}
+            </select>
+            <select name="" id="">
+              <option value="">размер</option>
+                {% for size in sizes %}
+                    <option value="{{ size.id }}" {% if current_size == size.id %}selected{% endif %}>
+                        {{ size.size }}
+                    </option>
+                {% endfor %}
+            </select>
+          </div>
+          <div class="filter_item_sort filter_item">
+            <select name="" id="">
+              <option value="">cортировка</option>
+                <option value="price_asc" {% if current_sort == 'price_asc' %}selected{% endif %}>цена по возрастанию</option>
+                <option value="price_desc" {% if current_sort == 'price_desc' %}selected{% endif %}>цена по убыванию</option>
+            </select>
+          </div>
+          <div class="sort_item">
+            <img src="{% static './svg/Sort.svg' %}" alt="sort">
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <section class="section2">
+      <div class="container2">
+        <div class="card">
+            
+            {% for product in products %}
+              <div class="card-item">
+                <div class="card-wrapper">
+                  <div class="card-img">
+                    <img src="{{ product.first_image.url }}" alt="" style="cursor: pointer;"
+                    onclick="window.location.href='{% url 'product_detail' product.pk %}'">
+                  </div>
+                  <div class="card-modal">
+                    <div class="favorite-button">
+                      <button>
+                          {% if user.is_authenticated %}
+                          <img id="desklove" src="{% static './svg/Love.svg' %}" alt="love" style="cursor: pointer;" 
+                             onclick="window.location.href='{% url 'wishlistadd' product.pk %}'"/>
+                          <svg id="mobilelove" width="20" height="20" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"
+                          onclick="window.location.href='{% url 'wishlistadd' product.pk %}'">
+                            <path d="M5.19181 16.2262L13.3147 23.8568C13.6391 24.1616 13.8013 24.314 13.9993 24.314C14.1974 24.314 14.3596 24.1616 14.684 23.8568L22.8069 16.2262C25.0891 14.0823 25.3662 10.5544 23.4468 8.08041L23.0859 7.61522C20.7897 4.65567 16.1806 5.15201 14.5671 8.53258C14.3392 9.01011 13.6595 9.01011 13.4316 8.53258C11.8181 5.15201 7.20903 4.65566 4.91282 7.61522L4.5519 8.0804C2.63246 10.5544 2.9096 14.0823 5.19181 16.2262Z" stroke="black" opacity="1" stroke-width="2"/>
+                          </svg>
+                          {% else %}
+                            <img id="desklove" class="open-popup" 
+                                 src="{% static './svg/Love.svg' %}" alt="love" style="cursor: pointer;"/>
+                              <svg id="mobilelove" class="open-popup" width="20" height="20" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5.19181 16.2262L13.3147 23.8568C13.6391 24.1616 13.8013 24.314 13.9993 24.314C14.1974 24.314 14.3596 24.1616 14.684 23.8568L22.8069 16.2262C25.0891 14.0823 25.3662 10.5544 23.4468 8.08041L23.0859 7.61522C20.7897 4.65567 16.1806 5.15201 14.5671 8.53258C14.3392 9.01011 13.6595 9.01011 13.4316 8.53258C11.8181 5.15201 7.20903 4.65566 4.91282 7.61522L4.5519 8.0804C2.63246 10.5544 2.9096 14.0823 5.19181 16.2262Z" stroke="black" opacity="1" stroke-width="2"/>
+                              </svg>
+                          {% endif %}
+                      </button>
+                    </div>
+                    <div class="card-text-wrapper" style="cursor: pointer;">
+                      <div class="card-text">
+                        <div class="card-title"onclick="window.location.href='{% url 'product_detail' product.pk %}'">{{ product.brand }}</div>
+                        <div class="card-description"onclick="window.location.href='{% url 'product_detail' product.pk %}'">{{ product.name }}</div>
+                      </div>
+                      <div class="card-price" onclick="window.location.href='{% url 'product_detail' product.pk %}'">
+                        <span>${{ product.price }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+        <div class="button3">
+            <!--<button>смотреть еще</button>-->
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer">
+          <div class="footer_item">
+            <p>информация</p>
+            <a href="">условия оплаты</a>
+            <a href="">условия доставки</a>
+            <a href="">политика</a>
+          </div>
+          <div class="footer_item">
+            <p>помощь</p>
+            <a href="">вопрос-ответ</a>
+          </div>
+          <div class="footer_item">
+            <p>подписаться на рассылку</p>
+            <input type="text" placeholder="e-mail" />
+          </div>
+          <div class="footer_item" style="margin-right: 20px">
+            <p>контакты</p>
+            <a href="">telegram</a>
+            <a href="">whatsapp</a>
+          </div>
+        </div>
+        <div class="logo2">
+          <a href="{% url 'index' %}">Knitted*</a>
+        </div>
+      </div>
+    </footer>
+{% endblock %}
+

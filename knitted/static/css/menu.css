@@ -1,0 +1,170 @@
+.h2mobile {
+  display: none;
+}
+
+header {
+  padding: 20px 0px;
+}
+
+.display_flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  text-decoration: none;
+  color: black;
+  font-size: 42px;
+  font-family: "GEB";
+}
+
+.search {
+  height: 40px;
+  display: flex;
+  border: 1px solid rgb(255, 255, 255);
+  width: 455px;
+  border-bottom: 1px solid rgb(225, 225, 225);
+  border-bottom: 1px solid hsla(0, 0%, 0%, 0.15);
+  box-shadow: 0px 20px 40px 0px hsla(240, 17%, 24%, 0.1);
+
+box-shadow: 0px 8px 20px 0px hsla(240, 17%, 24%, 0.1);
+
+}
+
+.search input {
+  width: 100%;
+  border: none;
+  margin-left: 12px;
+  outline: none;
+  font-family: "HL";
+}
+.search button {
+  border: none;
+  background-color: white;
+}
+
+.navigation {
+  display: flex;
+  gap: 20px;
+}
+
+/* SECTION SECTION SECTION SECTION SECTION SECTION */
+.section1 {
+  border-top: 1px solid #d0d0d0a6;
+  border-bottom: 1px solid #d0d0d0a6;
+  padding: 20px;
+  font-family: "HL";
+}
+.navigation2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 52px;
+}
+.navigation2 a {
+  text-decoration: none;
+  color: black;
+}
+
+@media screen and (max-width: 834px) {
+  header {
+    padding: 33px 30px;
+  }
+
+  .display_flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo a {
+    font-family: GM;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 38.4px;
+    text-align: left;
+    margin-right: 20px;
+  }
+
+  .search {
+    height: 40px;
+    display: flex;
+    border: 1px solid rgb(255, 255, 255);
+    width: 100%;
+    margin: 0 30px;
+    border-bottom: 1px solid rgb(225, 225, 225);
+  }
+
+  .search input {
+    width: 100%;
+    border: none;
+    margin-left: 12px;
+    outline: none;
+    font-family: "HL";
+  }
+  .search button {
+    border: none;
+    background-color: white;
+  }
+
+  .navigation {
+    display: flex;
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .h2pc {
+    display: none;
+  }
+
+  .h2mobile {
+    display: block;
+  }
+
+  header {
+    padding: 0 0px;
+    padding-top: 57px;
+  }
+
+  .display_flex {
+    display: block;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo a {
+    font-family: GEB;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 24px;
+    text-align: left;
+  }
+
+  .search {
+    height: 40px;
+    display: none;
+    border: 1px solid rgb(255, 255, 255);
+    max-width: 300px;
+    border-bottom: 1px solid rgb(225, 225, 225);
+  }
+
+  .search input {
+    width: 100%;
+    border: none;
+    margin-left: 12px;
+    outline: none;
+    font-family: "HL";
+  }
+  .search button {
+    border: none;
+    background-color: white;
+  }
+
+  .navigation {
+    display: none;
+    gap: 10px;
+  }
+}

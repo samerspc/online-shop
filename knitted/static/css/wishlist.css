@@ -1,0 +1,339 @@
+@font-face {
+  font-family: "GEB";
+  src: url(../fonts/Gellix-ExtraBold.ttf);
+}
+@font-face {
+  font-family: "GM";
+  src: url(../fonts/Gellix-Medium.ttf);
+}
+@font-face {
+  font-family: "GR";
+  src: url(../fonts/Gellix-Regular.ttf);
+}
+@font-face {
+  font-family: "circular";
+  src: url(../fonts/circular.ttf);
+}
+@font-face {
+  font-family: "HL";
+  src: url(../fonts/HelveticaNeueCyr-Light.ttf);
+}
+@font-face {
+  font-family: "HM";
+  src: url(../fonts/HelveticaNeueCyr-Medium.ttf);
+}
+* {
+  padding: 0;
+}
+
+.container {
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+
+/* SECTION SECTION SECTION SECTION SECTION SECTION */
+.section1 {
+  border-top: 1px solid #d0d0d0a6;
+  border-bottom: 1px solid #d0d0d0a6;
+  padding: 20px;
+  font-family: "HL";
+}
+.navigation2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 52px;
+}
+.navigation2 a {
+  text-decoration: none;
+  color: black;
+}
+
+/* SECTION2 SECTION2 SECTION2 SECTION2 SECTION2 SECTION2 */
+
+.container2 {
+  max-width: 1330px;
+  margin: 0 auto;
+}
+
+.section2 h2 {
+  margin-top: 36px;
+  margin-bottom: 87px;
+  font-weight: 400;
+  font-size: 36px;
+  font-family: "HL";
+}
+
+.section2 {
+  margin-top: 85px;
+}
+
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 36px;
+}
+
+/* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER */
+footer {
+  margin-top: 500px;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+.footer {
+  display: grid;
+  grid-template-columns: 14% 28% 1fr auto;
+  margin-top: 34px;
+}
+.footer_item {
+  display: flex;
+  flex-direction: column;
+}
+.footer_item p {
+  margin-bottom: 23px;
+  font-family: "HL";
+  font-size: 16px;
+  color: black;
+}
+
+.footer_item a {
+  margin-bottom: 12px;
+  color: black;
+  font-family: "HL";
+}
+
+.footer_item input {
+  width: 250px;
+  height: 45px;
+  border: 1px solid white;
+  background-color: white;
+  box-shadow: 0px 10px 25px 5px rgba(0, 0, 0, 0.1);
+  padding-left: 10px;
+  font-family: "HL";
+}
+
+.logo2 {
+  display: flex;
+  justify-content: center;
+}
+.logo2 a {
+  text-decoration: none;
+  color: black;
+  font-size: 42px;
+  font-family: "GEB";
+}
+
+@media screen and (max-width: 843px) {
+  .container {
+    max-width: 834px;
+    margin: 0 auto;
+  }
+
+  header {
+    padding: 20px 0px;
+  }
+
+  .display_flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo a {
+    text-decoration: none;
+    color: black;
+    font-size: 34px;
+    font-family: "GEB";
+  }
+
+  .search {
+    height: 40px;
+    display: flex;
+    border: 1px solid rgb(255, 255, 255);
+    width: 100%;
+    margin: 0 10px;
+    box-shadow: 0px 10px 30px 5px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgb(225, 225, 225);
+  }
+
+  .search input {
+    width: 100%;
+    border: none;
+    margin-left: 12px;
+    outline: none;
+    font-family: "HL";
+  }
+  .search button {
+    border: none;
+    background-color: white;
+  }
+
+  .navigation {
+    display: flex;
+    gap: 20px;
+  }
+
+  /* SECTION SECTION SECTION SECTION SECTION SECTION */
+  .section1 {
+    border-top: 1px solid #d0d0d0a6;
+    border-bottom: 1px solid #d0d0d0a6;
+    padding: 20px;
+    font-family: "HL";
+  }
+  .navigation2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 52px;
+  }
+  .navigation2 a {
+    text-decoration: none;
+    color: black;
+  }
+
+  /* SECTION2 SECTION2 SECTION2 SECTION2 SECTION2 SECTION2 */
+
+  .container2 {
+    max-width: 834px;
+    margin: 0 auto;
+  }
+
+  .section2 h2 {
+    margin-top: 36px;
+    margin-bottom: 87px;
+    font-weight: 400;
+    font-size: 36px;
+    font-family: "HL";
+  }
+
+  .section2 {
+    margin-top: 85px;
+  }
+
+  .card {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER */
+  footer {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .container {
+    max-width: 393px;
+    margin: 0 auto;
+    padding: 0px;
+  }
+
+  header {
+    padding: 0 0px;
+    padding-top: 0px;
+  }
+
+  .display_flex {
+    display: block;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo a {
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    font-family: "GEB";
+  }
+
+  .search {
+    height: 40px;
+    display: flex;
+    border: 1px solid rgb(255, 255, 255);
+    max-width: 80%;
+    min-width: none;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 0 10px;
+    box-shadow: 0px 10px 30px 5px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgb(225, 225, 225);
+  }
+
+  .search input {
+    width: 80%;
+    border: none;
+    margin-left: 12px;
+    outline: none;
+    font-family: "HL";
+  }
+  .search button {
+    border: none;
+    background-color: white;
+  }
+
+  .navigation {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  /* SECTION SECTION SECTION SECTION SECTION SECTION */
+  .section1 {
+    border-top: 1px solid #d0d0d0a6;
+    border-bottom: 1px solid #d0d0d0a6;
+    padding: 20px;
+    font-family: "HL";
+  }
+  .navigation2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+    grid-gap: 8px;
+    flex-wrap: wrap;
+  }
+  .navigation2 a {
+    text-decoration: none;
+    color: black;
+  }
+
+  /* SECTION2 SECTION2 SECTION2 SECTION2 SECTION2 SECTION2 */
+
+  .container2 {
+    max-width: 393px;
+    margin: 0 auto;
+    padding: 0px;
+  }
+
+  .section2 h2 {
+    margin-top: 36px;
+    margin-bottom: 87px;
+    font-family: "HL";
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 19.6px;
+    text-align: left;
+  }
+
+  .section2 {
+    margin-top: 0px;
+  }
+
+  .card {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER FOOTER */
+  footer {
+    display: none;
+  }
+}

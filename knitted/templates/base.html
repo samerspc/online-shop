@@ -1,0 +1,297 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>knitted*</title>
+        
+        <link rel="stylesheet" href="{% static 'css/menu.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/auto.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/burger.css' %}" />
+        {% block head %}{% endblock %}
+        
+    </head>
+    <style>
+        input {outline: none;}
+        @media screen and (min-width: 520px) {
+            header {padding-left: 20px; padding-right: 20px;}
+        }
+    </style>
+  <body>
+    <div class="menu-mobile">
+      <div class="wrapper">
+        <nav>
+            {% if user.is_authenticated %}
+              <div class="item active">
+                <a href="{% url 'index' %}">
+                    <img src="{% static './svg/Home_light.svg' %}" alt="home" />
+                    <p>главная</p>
+                </a>
+              </div>
+              <div class="item">
+                <a href="{% url 'index' %}">
+                    <img src="{% static './svg/Frame 232.svg' %}" alt="seacrh">
+                    <p>поиск</p>
+                </a>
+              </div>
+              <div class="item bag">
+                <a href="{% url 'basket' %}">
+                    <img src="{% static './svg/Bag_alt_light.svg' %}" alt="bat">
+                    <p>корзина</p>
+                </a>
+              </div>
+              <div class="item">
+                <a href="{% url 'wishlist' %}">
+                    <img src="{% static './svg/Favorite_light.svg' %}" alt="favirite"
+                    style="opacity: 0.5">
+                    <p>избранное</p>
+                </a>
+              </div>
+              <div class="item">
+                <a href="{% url 'profile' %}">
+                    <img src="{% static './svg/User_alt_light.svg' %}" alt="profile">
+                    <p>профиль</p>
+                </a>
+              </div>
+            {% else %}
+              <div class="item active">
+                <a href="{% url 'index' %}">
+                    <img src="{% static './svg/Home_light.svg' %}" alt="home" />
+                    <p>главная</p>
+                </a>
+              </div>
+              <div class="item">
+                <a id="account">
+                    <img src="{% static './svg/Frame 232.svg' %}" alt="seacrh">
+                    <p>поиск</p>
+                </a>
+              </div>
+              <div class="item bag">
+                <a id="account">
+                    <img src="{% static './svg/Bag_alt_light.svg' %}" alt="bat">
+                    <p>корзина</p>
+                </a>
+              </div>
+              <div class="item">
+                <a id="account">
+                    <img src="{% static './svg/Favorite_light.svg' %}" alt="favirite">
+                    <p>избранное</p>
+                </a>
+              </div>
+              <div class="item">
+                <a id="account">
+                    <img src="{% static './svg/User_alt_light.svg' %}" alt="profile">
+                    <p>профиль</p>
+                </a>
+              </div>
+            {% endif %}
+        </nav>
+      </div>
+    </div>
+
+    <div class="layer"></div>
+
+    <div class="panel">
+      <div id="closePanel">
+        <img src="{% static './img/Close_round_light.png' %}" alt="close" />
+      </div>
+
+      <div class="regandauto">войдите или создайте аккаунт</div>
+      <div class="choice">
+        <a href="#" class="come">войти</a>
+        <a href="#" class="create">создать аккаунт </a>
+      </div>
+      <!-- come -->
+      
+        <form action="{% url 'login' %}" method="post" id="formInput">
+            {% csrf_token %}
+            <label id="labelInput" for="{{ loginForm.username.id_for_label }}">телефон</label> <br/>
+            {{ loginForm.username }}
+            <!--<input id="input" name="input" type="text" />-->
+          
+            <br/>
+          
+            <label id="labelInput" for="{{ loginForm.password.id_for_label }}">пароль</label> <br />
+            {{ loginForm.password }}
+            <!--<input id="input" name="input" type="text" />-->
+            <br/>
+        
+            <a href="#" class="password">забыли пароль?</a> <br />
+        <input class="submit" id="submit" type="submit" value="войти" />
+      </form>
+        
+      <!-- create -->
+      <form action="{% url 'registration' %}" method="post" id="formAccount">
+        {% csrf_token %}  
+        <label id="labelInput" for="{{ registationForm.username.id_for_label }}">телефон</label> <br />
+        {{ registationForm.username }}  
+        <!--<input id="input" name="input" type="text" />--> 
+          
+        <br/>
+          
+        <label id="labelInput" for="{{ registationForm.password1.id_for_label }}">пароль</label> <br />
+        {{ registationForm.password1 }}
+        <!--<input id="password" name="password" type="text" />--> 
+          
+        <br/>
+          
+        <label id="labelInput" for="{{ registationForm.password2.id_for_label }}">подтверждение пароля</label> <br>
+        <!--<input id="password1" name="password1" type="password">-->
+        {{ registationForm.password2 }}
+        <br>
+        <input
+          class="submit"
+          id="submit"
+          type="submit"
+          value="создать аккаунт"
+        />
+      </form>
+      <div class="or">или</div>
+      <div class="social">
+        <div class="google">
+          <img src="{% static './img/google.png' %}" alt="google" />
+          <div>
+            <span>войти через Google</span>
+          </div>
+        </div>
+        <div class="vk">
+          <img src="{% static './img/vk.png' %}" alt="google" />
+          <div>
+            <span>войти через Вконтакте</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+        .logo img {
+            width: 18px;
+            height: 18px;
+        }
+        #mobile_hide0, #mobile_hide1 { display: none; }
+        
+        @media screen and (max-width: 520px){
+            #mobile_hide {display: none;}
+            #mobile_hide0, #mobile_hide1 {display: block;}
+            .logo {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    </style>
+    
+    <header>
+      <div class="container">
+        <div class="display_flex">
+          <div class="logo">
+                <a href="{% url 'index' %}" id="mobile_hide">knitted*</a>
+                <a href="{% url 'index' %}" id="mobile_hide0">knitted</a>
+                <img src="{% static './svg/starr.svg' %}" alt="" id="mobile_hide1">
+          </div>
+          <div class="search" style="box-shadow: 0px 10px 30px 5px rgba(0, 0, 0, 0.1);">
+            <input type="text" placeholder="ПОИСК" />
+            <button>
+              <img src="{% static './svg/Search.svg' %}" alt="" />
+            </button>
+          </div>
+          <div class="navigation">
+              {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}">
+                  <img src="{% static './svg/User.svg' %}" alt="" />
+                </a>
+                  
+                <a href="{% url 'wishlist' %}">
+                  <img src="{% static './svg/Love.svg' %}" alt="" />
+                </a>
+                  
+                <a href="{% url 'basket' %}">
+                  <img src="{% static './svg/korzina.svg' %}" alt="" />
+                </a>
+              {% else %}
+                <a class="open-popup" style="cursor: pointer;">
+                  <img src="{% static './svg/User.svg' %}" alt="" />
+                </a>
+                  
+                <a class="open-popup" style="cursor: pointer;">
+                  <img src="{% static './svg/Love.svg' %}" alt="" />
+                </a>
+                  
+                <a class="open-popup" style="cursor: pointer;">
+                  <img src="{% static './svg/korzina.svg' %}" alt="" />
+                </a>
+              {% endif %}
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section1">
+      <div class="navigation2">
+        <a href="">бренды</a>
+        <a href="">обувь</a>
+        <a href="">одежда</a>
+        <a href="">контакты</a>
+      </div>
+    </section>
+    
+    {% block content %}
+        {% block emergency0 %}{% endblock %}
+        {% block emergency1 %}{% endblock %}
+        {% block emergency2 %}{% endblock %}
+        {% block emergency3 %}{% endblock %}
+        {% block emergency4 %}{% endblock %}
+        {% block emergency5 %}{% endblock %}
+        {% block emergency6 %}{% endblock %}
+        {% block emergency7 %}{% endblock %}
+    {% endblock %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll(".open-popup").forEach(function(element) {
+                element.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    document.querySelector(".layer").style.display = "block";
+                    document.body.style.overflow = "hidden";
+                    document.querySelector(".panel").style.display = "block";
+                    document.querySelector(".panel").style.animation = "animOpen 0.3s ease-in-out";
+                    document.querySelector(".layer").style.animation = "animOpen 0.3s ease-in-out";
+                });
+            });
+        
+            document.getElementById("closePanel").addEventListener("click", function(event) {
+                event.preventDefault();
+                document.querySelector(".panel").style.animation = "animClose 0.3s ease-in-out";
+                document.querySelector(".layer").style.animation = "animClose 0.3s ease-in-out";
+                setTimeout(() => {
+                    document.querySelector(".layer").style.display = "none";
+                    document.querySelector(".panel").style.display = "none";
+                    document.body.style.overflow = "auto";
+                }, 300);
+            });
+        
+            document.querySelector(".create").addEventListener('click', function(event) {
+                event.preventDefault();
+                document.querySelector(".create").style.color = "hsla(0, 0%, 0%, 1)";
+                document.querySelector(".create").style.fontFamily = "HM";
+                document.querySelector(".come").style.color = "hsla(0, 0%, 0%, 0.65)";
+                document.querySelector(".come").style.fontFamily = "HL";
+                document.getElementById("formAccount").style.display = "block";
+                document.getElementById("formInput").style.display = "none";
+            });
+        
+            document.querySelector(".come").addEventListener('click', function(event) {
+                event.preventDefault();
+                document.querySelector(".come").style.color = "hsla(0, 0%, 0%, 1)";
+                document.querySelector(".come").style.fontFamily = "HM";
+                document.querySelector(".create").style.color = "hsla(0, 0%, 0%, 0.65)";
+                document.querySelector(".create").style.fontFamily = "HL";
+                document.getElementById("formAccount").style.display = "none";
+                document.getElementById("formInput").style.display = "block";
+            });
+        });
+
+    </script>
+  </body>
+</html>

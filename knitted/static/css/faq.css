@@ -1,0 +1,392 @@
+@font-face {
+    font-family: "GEB";
+    src: url(../fonts/Gellix-ExtraBold.ttf);
+}
+@font-face {
+    font-family: "GM";
+    src: url(../fonts/Gellix-Medium.ttf);
+}
+@font-face {
+    font-family: "GR";
+    src: url(../fonts/Gellix-Regular.ttf);
+}
+@font-face {
+    font-family: "circular";
+    src: url(../fonts/circular.ttf);
+}
+@font-face {
+    font-family: "HL";
+    src: url(../fonts/HelveticaNeueCyr-Light.ttf);
+}@font-face {
+    font-family: "HM";
+    src: url(../fonts/HelveticaNeueCyr-Medium.ttf);
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+header{
+    padding: 20px 0px;
+}
+
+.display_flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+    color: black;
+    font-size: 42px;
+    font-family: "GEB";
+}
+
+.search {
+    height: 40px;
+    display: flex;
+    border: 1px solid rgb(255, 255, 255);
+    width: 455px;
+    box-shadow: 0px 10px 30px 5px rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgb(225, 225, 225);
+}
+
+.search input{
+    width: 100%;
+    border: none;
+    margin-left: 12px;
+    outline: none;
+    font-family: "HL";
+}
+.search button{
+    border: none;
+    background-color: white;
+}
+
+.navigation {
+    display: flex;
+    gap: 20px;
+}
+
+/* SECTION SECTION SECTION SECTION SECTION SECTION */
+.section1{
+    border-top: 1px solid #d0d0d0a6;
+    border-bottom: 1px solid #d0d0d0a6;
+    padding: 20px;
+    font-family: "HL";
+}
+.navigation2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 52px;
+}
+.navigation2 a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+/* FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ */
+
+.container2 {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+.card {
+    display: flex;
+    gap: 380px;
+    margin-top: 100px;
+}
+
+.card_item{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.card_item h1{
+    font-family: "HL";
+    font-weight: 400;
+}
+
+.card_item button{
+    border: none;
+    background-color: white;
+    margin-bottom: 23px;
+    font-size: 18px;
+    font-family: "HL";
+    cursor: pointer;
+}
+
+.card_item h1{
+    margin-bottom: 35px;
+}
+
+.tabcontent h3{
+    font-size: 36px;
+    font-family: 'HL';
+    font-weight: 400;
+    margin-bottom: 35px;
+}
+.tabcontent p{
+    font-family: 'HL';
+    margin-bottom: 23px;
+}
+.tabcontent p span{
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 834px) {
+    .container{
+        max-width: 834px;
+        margin: 0 auto;
+        padding: 32px;
+    }
+    
+    header{
+        padding: 20px 0px;
+    }
+    
+    .display_flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .logo a {
+        text-decoration: none;
+        color: black;
+        font-size: 32px;
+        font-family: "GEB";
+    }
+    
+    .search {
+        height: 40px;
+        display: flex;
+        border: 1px solid rgb(255, 255, 255);
+        width: 100%;
+        margin: 0 10px;
+        box-shadow: 0px 10px 30px 5px rgba(0,0,0,0.1);
+        border-bottom: 1px solid rgb(225, 225, 225);
+    }
+    
+    .search input{
+        width: 100%;
+        border: none;
+        margin-left: 12px;
+        outline: none;
+        font-family: "HL";
+    }
+    .search button{
+        border: none;
+        background-color: white;
+    }
+    
+    .navigation {
+        display: flex;
+        gap: 20px;
+    }
+    
+    /* SECTION SECTION SECTION SECTION SECTION SECTION */
+    .section1{
+        border-top: 1px solid #d0d0d0a6;
+        border-bottom: 1px solid #d0d0d0a6;
+        padding: 20px;
+        font-family: "HL";
+    }
+    .navigation2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 52px;
+    }
+    .navigation2 a {
+        text-decoration: none;
+        color: black;
+    }
+    
+    
+    
+    /* FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ */
+    
+    .container2 {
+        max-width: 834px;
+        margin: 0 auto;
+        padding: 32px;
+      }
+    
+    .card {
+        display: flex;
+        gap: 68px;
+        flex-direction: column;
+    }
+    
+    .card_item{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+    .card_item h1{
+        font-family: "HL";
+        font-weight: 400;
+    }
+    
+    .card_item button{
+        border: none;
+        background-color: white;
+        margin-bottom: 23px;
+        font-size: 18px;
+        font-family: "HL";
+        cursor: pointer;
+    }
+    
+    .card_item h1{
+        margin-bottom: 35px;
+    }
+    
+    .tabcontent h3{
+        font-size: 36px;
+        font-family: 'HL';
+        font-weight: 400;
+        margin-bottom: 35px;
+    }
+    .tabcontent p{
+        font-family: 'HL';
+        margin-bottom: 23px;
+    }
+    .tabcontent p span{
+        text-decoration: underline;
+    }
+}
+
+@media screen and (max-width: 394px) {
+    .container{
+        max-width: 394px;
+        margin: 0 auto;
+        padding: 16px;
+    }
+    
+    header{
+        padding: 20px 0px;
+    }
+    
+    .display_flex {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .logo a {
+        text-decoration: none;
+        color: black;
+        font-size: 24px;
+        font-family: "GEB";
+    }
+    
+    .search {
+        height: 40px;
+        display: flex;
+        border: 1px solid rgb(255, 255, 255);
+        width: 100%;
+        margin: 0 10px;
+        box-shadow: 0px 10px 30px 5px rgba(0,0,0,0.1);
+        border-bottom: 1px solid rgb(225, 225, 225);
+    }
+    
+    .search input{
+        width: 100%;
+        border: none;
+        margin-left: 12px;
+        outline: none;
+        font-family: "HL";
+    }
+    .search button{
+        border: none;
+        background-color: white;
+    }
+    
+    .navigation {
+        display: flex;
+        gap: 20px;
+    }
+    
+    /* SECTION SECTION SECTION SECTION SECTION SECTION */
+    .section1{
+        border-top: 1px solid #d0d0d0a6;
+        border-bottom: 1px solid #d0d0d0a6;
+        padding: 20px;
+        font-family: "HL";
+    }
+    .navigation2{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+    }
+    .navigation2 a {
+        text-decoration: none;
+        color: black;
+        font-size: 12px;
+    }
+    
+    
+    
+    /* FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ FAQ */
+    
+    .container2 {
+        max-width: 834px;
+        margin: 0 auto;
+        padding: 32px;
+      }
+    
+    .card {
+        display: flex;
+        gap: 68px;
+        flex-direction: column;
+    }
+    
+    .card_item{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+    .card_item h1{
+        font-family: "HL";
+        font-weight: 400;
+    }
+    
+    .card_item button{
+        border: none;
+        background-color: white;
+        margin-bottom: 23px;
+        font-size: 18px;
+        font-family: "HL";
+        cursor: pointer;
+    }
+    
+    .card_item h1{
+        margin-bottom: 35px;
+    }
+    
+    .tabcontent h3{
+        font-size: 36px;
+        font-family: 'HL';
+        font-weight: 400;
+        margin-bottom: 35px;
+    }
+    .tabcontent p{
+        font-family: 'HL';
+        margin-bottom: 23px;
+    }
+    .tabcontent p span{
+        text-decoration: underline;
+    }
+}

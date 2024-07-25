@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>Профиль</title>
+    <link rel="stylesheet" href="{% static './css/profile.css' %}">
+    <style>
+        .input_special input:focus {
+            outline: none;
+            border: none;
+        }
+        .input_special input {border: none;}
+    </style>
+{% endblock %}
+
+{% block content %}
+        <section class="container">
+            <div class="profile">
+                <div class="cabinet">
+                    <p>личный кабинет</p>
+                    <p style="font-size: 16px; text-decoration: underline; cursor: pointer;"
+                    onclick="window.location.href='{% url 'logout' %}'">
+                        выйти
+                    </p>
+                    <form class="data" action="{% url 'profile' %}" method="post">
+                        {% csrf_token %}
+                        <div class="special">
+                            <span>телефон</span>
+                            <div class="input_special">
+                                {{ form.username }}
+                                <!--<span class="data_special">+7 999 773 88 66</span>-->
+                                <img src="{% static './svg/Edit_light.svg' %}" alt="edit">
+                            </div>
+                        </div>
+                        <div class="special">
+                            <span>фио</span>
+                            <div class="input_special">
+                                <!--<span class="data_special">+7 999 773 88 66</span>-->
+                                {{ form.first_name }}
+                                <img src="{% static './svg/Edit_light.svg' %}" alt="edit">
+                            </div>
+                        </div>
+                        <div class="special">
+                            <span>почта</span>
+                            <div class="input_special">
+                                <!--<span class="data_special">nonamer@gmail.com</span>-->
+                                {{ form.email }}
+                                <img src="{% static './svg/Edit_light.svg' %}" alt="edit">
+                            </div>
+                        </div>
+                        <div class="special">
+                            <span>адресная книга</span>
+                            <div class="input_special">
+                                <!--<span class="data_special">грув стрит 158</span>-->
+                                {{ form.last_name }}
+                                <img src="{% static './svg/Edit_light.svg' %}" alt="edit">
+                            </div>
+                        </div>
+                        <input class="submit" id="submit" type="submit" value="сохранить">
+                    </form>
+                </div>
+                <div class="cart">
+                    <p>история заказов</p>
+                    <div class="carts">
+                      <div class="order">
+                          <div class="boots">
+                            <div class="basket">
+                              <div class="boots_img">
+                                <!--<img src="" alt="boots">--><!-- фото -->
+                              </div>
+                                <div class="text">
+                                    <div class="title"></div> <!-- бренд -->
+                                    <div class="description"></div> <!-- имя -->
+                                </div>
+                            </div>
+                          </div>
+                          <span class="price"></span>
+                      </div>
+                    </div>
+                <div class="loop">
+                  <a href="#"></a>
+              </div>
+              </div>
+            </div>
+        </section>
+
+    <!-- footer -->
+    <footer>
+        <div class="container">
+          <div class="footer">
+            <div class="footer_item">
+              <p>информация</p>
+              <a href="">условия оплаты</a>
+              <a href="">условия доставки</a>
+              <a href="">политика</a>
+            </div>
+            <div class="footer_item">
+              <p>помощь</p>
+              <a href="">вопрос-ответ</a>
+            </div>
+            <div class="footer_item">
+              <p>подписаться на рассылку</p>
+              <input type="text" placeholder="e-mail">
+            </div>
+            <div class="footer_item" style="margin-right: 20px;">
+              <p>контакты</p>
+              <a href="">telegram</a>
+              <a href="">whatsapp</a>
+            </div>
+          </div>
+          <div class="logo2">
+            <a href="">Knitted*</a>
+          </div>
+        </div>
+      </footer>
+{% endblock %}

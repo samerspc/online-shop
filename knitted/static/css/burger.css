@@ -1,0 +1,162 @@
+@font-face {
+  font-family: "GEB";
+  src: url(../fonts/Gellix-ExtraBold.ttf);
+}
+@font-face {
+  font-family: "GM";
+  src: url(../fonts/Gellix-Medium.ttf);
+}
+@font-face {
+  font-family: "GR";
+  src: url(../fonts/Gellix-Regular.ttf);
+}
+@font-face {
+  font-family: "circular";
+  src: url(../fonts/circular.ttf);
+}
+@font-face {
+  font-family: "HL";
+  src: url(../fonts/HelveticaNeueCyr-Light.ttf);
+}
+@font-face {
+  font-family: "HM";
+  src: url(../fonts/HelveticaNeueCyr-Medium.ttf);
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.menu-mobile {
+  display: none;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  height: 80px;
+  bottom: 0px;
+  z-index: 999;
+}
+
+.menu-mobile nav {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 8px;
+  position: relative;
+  z-index: 999;
+}
+
+.menu-mobile nav .item a {
+  max-width: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0px 17px 2px 17px;
+
+  font-family: "HM";
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 19.6px;
+  text-align: left;
+  text-decoration: none;
+  color: hsla(0, 0%, 0%, 0.5);
+}
+
+.menu-mobile nav .item a img {
+  width: 30px;
+  height: 30px;
+}
+
+.menu-mobile nav .active a {
+    color: hsla(0, 0%, 0%, 1);
+}
+
+@media screen and (max-width: 520px) {
+  .menu-mobile {
+    display: block;
+  }
+
+  .search {
+    display: none;
+  }
+
+  .navigation {
+    display: none;
+  }
+
+  .section1 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 356px) {
+  .menu-mobile {
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    height: 80px;
+    bottom: 0px;
+    z-index: 999;
+  }
+
+  .menu-mobile nav {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 8px;
+  }
+
+  .menu-mobile nav .item a {
+    max-width: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0px 8px 2px 8px;
+
+    font-family: "HM";
+    font-size: 8px;
+    font-weight: 400;
+    line-height: 19.6px;
+    text-align: left;
+    text-decoration: none;
+    color: hsla(0, 0%, 0%, 0.5);
+  }
+}
+
+@media screen and (max-width: 251px) {
+  .menu-mobile {
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    height: 80px;
+    bottom: 0px;
+    z-index: 999;
+  }
+
+  .menu-mobile nav {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 8px;
+  }
+
+  .menu-mobile nav .item a {
+    max-width: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0px 0px 2px 0px;
+
+    font-family: "HM";
+    font-size: 8px;
+    font-weight: 400;
+    line-height: 19.6px;
+    text-align: left;
+    text-decoration: none;
+    color: hsla(0, 0%, 0%, 0.5);
+  }
+}

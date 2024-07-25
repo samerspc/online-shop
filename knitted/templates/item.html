@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <title>{{ product.name }}</title>
+    <link rel="stylesheet" href="{% static './css/item0.css' %}">
+    <link rel="stylesheet" href="{% static './css/burger.css' %}" />
+    <link rel="stylesheet" href="{% static './css/cards.css' %}">
+    <link rel="stylesheet" href="{% static './css/auto.css' %}">
+{% endblock %}
+
+
+{% block content %}
+    <style>
+    .photo_img {
+        border: 1px solid rgba(0,0,0,0.1)
+    }
+    .country a {
+        opacity: 0.65;
+    }
+    #mobilelove {display: none;}
+    @media screen and (max-width: 520px) {
+        .photo_img {
+            border: none;
+            width: 500px;
+        }
+        .photo {
+            height: 233px;
+        }
+        .photo_img img {
+            object-fit: contain;
+        }
+        .country {margin-top: 10px;}
+        .size_price {
+            padding: 5px 0 5px 0;
+            width: 94px;
+        }
+        main {
+            margin-top: 0;
+        }
+        .size {
+            top: 250px;
+        }
+        .photo {
+            width: 100%;
+        }
+        .size_item {
+            width: auto;
+            position: absolute;
+            top: 120px;
+            height: 100px;
+            display: flex;
+            flex-direction: column-reverse;
+            overflow-y: hidden;
+            overflow-x: scroll;
+        }
+        .size_price {
+            display: inline-block;
+        }
+        .button2 {
+            margin-top: 60px;
+        }
+        .section3 {
+            margin-top: 170px;
+            margin-bottom: 0;
+        }
+        .section2 {
+            margin-top: 48px;
+        }
+        .h2h2 {
+            font-size: 16px;
+        }
+        .card_section {
+            margin-top: 36px;
+        }
+        .favorite-button button img {
+            width: 18px;
+            height: 18px;
+        }
+        #mobilelove {
+            display: block;
+            margin: 8px 8px 0 0;
+        }
+        #desklove {display: none;}
+        .card-price {
+            margin: 0 8px 8px 0;
+        }
+    }
+    </style>
+    <main>
+        <div class="container2">
+            <div class="card">
+                <div class="photo">
+                    <div class="photo_img">
+                        <img src="{{ product.first_image.url }}" alt="img">
+                    </div>
+                    <div class="photo_img">
+                        <img src="{{ product.first_image.url }}" alt="img">
+                    </div>
+                    <div class="photo_img">
+                        <img src="{{ product.first_image.url }}" alt="img">
+                    </div>
+                    <div class="photo_img">
+                        <img src="{{ product.first_image.url}}" alt="img">
+                    </div>
+                </div>
+                <div class="size">
+                    <div class="info_item">
+                        <h2 onclick="openPopup()">{{ product.brand }}</h2>
+                        <p class="cena1">{{ product.name }}</p>
+                        <p class="cena">${{ product.price }}</p>
+                    </div>
+                    <div class="country">
+                        <a href="">us</a>
+                        <a href="">ru</a>
+                        <a href="">uk</a>
+                        <a href="">cm</a>
+                    </div>
+                        <div class="size_item">
+                            {% for size in product.sizes.all %}
+                            <div class="size_price">
+                                <a href="">
+                                    {{size}} US <br>
+                                    <p>{{product.price}} $</p>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    <div class="button2">
+                        <input type="submit" class="input1" value="Добавить в корзину"
+                        onclick="window.location.href='{% url 'basketadd' product.pk %}'">
+                        <input type="submit" class="input2" value="Купить в один клик"
+                        onclick="window.location.href='{% url 'basketadd' product.pk %}'">
+                        <a href="" onclick="window.location.href='{% url 'index' %}'">Все товары бренда Nike</a>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+    </main>
+
+
+
+    <section class="section3">
+        <div class="container2">
+            <div class="info2">
+                <div class="info_item2">
+                    <h2>{{ product.brand }}</h2>
+                    <h3>{{ product.name }}</h3>
+                    <p class="p1">
+                        {{ product.description }}
+                    </p>
+                </div>
+                <div class="info_item2" style="margin-top: 0px;">
+                    <p class="p2">cостав</p>
+                    <p class="p3">
+                        {{ product.materials }}
+                    </p>
+                    <p class="p2">модель и образ</p>
+                    <p class="p3">размер на модели: 9</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section2">
+        <div class="container2">
+            <h2 class="h2h2">Вам также может понравиться</h2>
+            <div class="card_section">
+                {% for rndmProduct in random_products %}
+                <div class="card-item">
+                    <div class="card-wrapper">
+                      <div class="card-img"
+                      onclick="window.location.href='{% url 'product_detail' rndmProduct.pk %}'">
+                        <img src="{{ rndmProduct.first_image.url }}" alt="nike">
+                      </div>
+                      <div class="card-modal">
+                        <div class="favorite-button">
+                          <button>
+                            <img src="{% static './svg/Love.svg' %}" alt="love" id="desklove"
+                            onclick="window.location.href='{% url 'wishlistadd' rndmProduct.pk %}'"/>
+                            <svg id="mobilelove" width="20" height="20" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                onclick="window.location.href='{% url 'wishlistadd' product.pk %}'">
+                                <path d="M5.19181 16.2262L13.3147 23.8568C13.6391 24.1616 13.8013 24.314 13.9993 24.314C14.1974 24.314 14.3596 24.1616 14.684 23.8568L22.8069 16.2262C25.0891 14.0823 25.3662 10.5544 23.4468 8.08041L23.0859 7.61522C20.7897 4.65567 16.1806 5.15201 14.5671 8.53258C14.3392 9.01011 13.6595 9.01011 13.4316 8.53258C11.8181 5.15201 7.20903 4.65566 4.91282 7.61522L4.5519 8.0804C2.63246 10.5544 2.9096 14.0823 5.19181 16.2262Z" stroke="black" opacity="1" stroke-width="2"/>
+                            </svg>
+                          </button>
+                        </div>
+                        <div class="card-text-wrapper">
+                          <div class="card-text">
+                            <div class="card-title">{{ rndmProduct.brand }}</div>
+                            <div class="card-description">{{ rndmProduct.name }}</div>
+                          </div>
+                          <div class="card-price">
+                            <span>${{ rndmProduct.price }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <div class="container">
+            <div class="footer">
+                <div class="footer_item" >
+                    <p>информация</p>
+                    <a href="">условия оплаты</a>
+                    <a href="">условия доставки</a>
+                    <a href="">политика</a>
+                </div>
+                <div class="footer_item">
+                    <p>помощь</p>
+                    <a href="">вопрос-ответ</a>
+                </div>
+                <div class="footer_item">
+                    <p>подписаться на рассылку</p>
+                    <input type="text" placeholder="e-mail">
+                </div>
+                <div class="footer_item" style="margin-right: 20px;">
+                    <p>контакты</p>
+                    <a href="">telegram</a>
+                    <a href="">whatsapp</a>
+                </div>
+            </div>
+            <div class="logo2">
+                <a href="">Knitted*</a>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
